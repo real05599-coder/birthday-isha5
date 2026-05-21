@@ -543,11 +543,12 @@ makeStars('intro-stars',60);
 makeStars('main-stars',80);
 
 // ===== PHOTO PATHS (update these to match your actual filenames) =====
+const BASE = 'https://real05599-coder.github.io/birthday-isha5/';
 const PHOTOS = [
-  'ChatGPT Image (May 20, 2026, 08_24_53 PM).png',
-  'ChatGPT Image (May 20, 2026, 08_25_04 PM).png',
-  'ChatGPT Image (May 20, 2026, 08_24_44 PM).png',
-  'IMG-20260521-WA0000.jpg'
+  BASE + 'ChatGPT%20Image%20May%2020%2C%202026%2C%2008_24_53%20PM.png',
+  BASE + 'ChatGPT%20Image%20May%2020%2C%202026%2C%2008_25_04%20P(.png',
+  BASE + 'ChatGPT%20Image%20May%2020%2C%202026%2C%2008_24_44%20PM.png',
+  BASE + 'IMG-20260521-WA0000.jpg'
 ];
 
 // ===== NETFLIX INTRO =====
@@ -645,9 +646,11 @@ function blowCandle(i){
 
   // 2nd candle → show song modal
   if(blownCandles===2&&!songModalShown){
-    songModalShown=true;
-    document.getElementById('song-modal').classList.add('active');
-    return;
+  songModalShown=true;
+  const audio=document.getElementById('bg-audio');
+  audio.src=BASE+'Tenu%20Sang%20Rakhna%20Jigra%20320%20Kbps.mp3';
+  audio.play().catch(e=>console.log('Autoplay blocked:',e));
+  updateCandleHint();
   }
 
   const half=Math.ceil(totalCandles/2);
